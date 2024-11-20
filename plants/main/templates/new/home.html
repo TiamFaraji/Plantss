@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<section class="pl">
+    {% if user.is_authenticated %}
+    {% for plants in new %}
+    <article class="plants">
+        <a href="{%url 'api:edit' plants.id %}">
+            <div>
+                <img class="image" src="/media/{{plants.mainimage}}">
+                <h1>{{ plants.name }}</h1>
+                <p>name: {{ plants.nameF }}</p>
+                <p>type: {{plants.ittype}}</p>
+                <p>country: {{plants.country}}</p>
+                <p>medical: {{plants.medical}}</p>
+                <p>home: {{plants.home}}</p>
+                <p>introduction: {{plants.introduction}}</p>
+                <p>description: {{plants.description}}</p>
+                <p>sunlight: {{plants.sunlight}}</p>
+                <p>humidity: {{plants.humidity}}</p>
+                <p>temprature: {{plants.temprature}}</p>
+                <p>amount: {{plants.amount}}</p>
+                <p>discount: {{plants.discount}}</p>
+                <p>store: {{plants.store}}</p>
+                <p>suggestionplants: {{plants.suggestionplants}}</p>
+                <p>user: {{plants.author}}</p>
+                </div>
+        </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+</section>
+{% endblock %}
