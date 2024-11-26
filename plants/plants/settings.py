@@ -104,6 +104,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Set the session cookie age to two weeks (in seconds)
+SESSION_COOKIE_AGE = 1209600  # 2 weeks
+
+# Ensure the session is not cleared when the user closes their browser
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
