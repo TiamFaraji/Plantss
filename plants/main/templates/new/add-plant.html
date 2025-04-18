@@ -1,20 +1,139 @@
 {% extends "layout.html" %}
 <link rel="stylesheet" href="css/style.css">
 {%block title%}
-new plants
+افزودن گیاه جدید
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <section class="pr">
-        <div class="plants-div">
-        <form class="form-n" action="{%url 'main:add' %}" method="POST" 
-        enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form}}
-        <button class='but'>save</button>
+<section class="plant-form-section">
+    <div class="plants-form-container">
+        <h2 class="form-title">افزودن گیاه جدید به مجموعه</h2>
+        <form class="plant-form" action="{%url 'main:add' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="id_nameF">نام فارسی</label>
+                {{form.nameF}}
+                
+            </div>
+
+            <div class="form-group">
+                <label for="id_name">نام انگلیسی</label>
+                {{form.name}}
+              
+            </div>
+            
+            <div class="form-group">
+                <label for="id_ittype">نوع گیاه</label>
+                {{form.ittype}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_country">کشور مبدأ</label>
+                {{form.country}}
+                
+            </div>
+
+            <div class="form-group">
+                <label for="id_sunlight">نیاز به نور</label>
+                {{form.sunlight}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_humidity">نیاز به رطوبت</label>
+                {{form.humidity}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_temprature">دمای مناسب</label>
+                {{form.temprature}}
+               
+            </div>
+            
+            <div class="form-group">
+                <label for="id_amount">قیمت (تومان)</label>
+                {{form.amount}}
+               
+            </div>
+            
+            <div class="form-group">
+                <label for="id_discount">تخفیف (درصد)</label>
+                {{form.discount}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_store">فروشگاه</label>
+                {{form.store}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_suggestionplants">گیاهان پیشنهادی</label>
+                {{form.suggestionplants}}
+                
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    {{form.medical}} <label for="id_medical">دارویی</label>
+                    {{form.home}} <label for="id_home">خانگی</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_introduction">معرفی</label>
+                {{form.introduction}}
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_description">توضیحات</label>
+                {{form.description}}
+                
+            </div>
+            
+            
+            
+            <div class="form-group">
+                <label for="id_mainimage">تصویر اصلی</label>
+                <div class="image-upload">
+                    {{form.mainimage}}
+                </div>
+        
+            </div>
+            
+            <div class="form-group">
+                <label for="id_image1">تصویر ۱</label>
+                <div class="image-upload">
+                    {{form.image1}}
+                </div>
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_image2">تصویر ۲</label>
+                <div class="image-upload">
+                    {{form.image2}}
+                </div>
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="id_image3">تصویر ۳</label>
+                <div class="image-upload">
+                    {{form.image3}}
+                </div>
+                
+            </div>
+            
+            
+            <button type="submit" class='submit-btn'>ذخیره گیاه</button>
         </form>
-        </div>
-    </section>
-{% endif %}
+    </div>
+</section>
+
 {% endblock%}

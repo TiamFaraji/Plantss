@@ -23,7 +23,7 @@ class Addfield(models.Model):
     suggestionplants = models.CharField(max_length=30, verbose_name='suggestionplants')
     introduction = models.TextField(max_length=500, verbose_name='introduction')
     description = models.TextField(max_length=2000, verbose_name='description')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None, verbose_name='user')
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, default=None, verbose_name='user')
 
     def __str__(self):
         return self.name

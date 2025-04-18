@@ -15,9 +15,11 @@ def create(request):
         form = forms.Form(request.POST, request.FILES)
         if form.is_valid():
             newpost = form.save(commit=False)
-            newpost.author = request.user
+            # newpost.author = request.user  
             newpost.save()
+            print(request.user) 
             return redirect('api:list')
-    form = forms.Form()
-    return render(request, 'new/add-plant.html', {'form':form})
+    else:
+        form = forms.Form()
+    return render(request, 'new/add-plant.html', {'form': form})
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
 </head>
 <body>
-    <nav>
+    {% comment %} <nav>
         {% if user.is_authenticated %}
         <a href="{%url 'api:list'%}">plants list</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -33,7 +33,7 @@
         <a href="{%url 'users:login'%}">log in</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {% endif %}
-    </nav>
+    </nav> {% endcomment %}
     <main>
         {%block content%}
 
