@@ -2,6 +2,7 @@ from main.serializers import dataserializer
 from main.models import Addfield
 from rest_framework import mixins, generics
 from rest_framework.request import Request
+from rest_framework.permissions import IsAuthenticated
 
 # region comment
 # from django.shortcuts import get_object_or_404
@@ -63,5 +64,6 @@ class plants_list(generics.ListAPIView):
     serializer_class = dataserializer
 
 class plant(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Addfield.objects.all()
     serializer_class = dataserializer

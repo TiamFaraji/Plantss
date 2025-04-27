@@ -6,6 +6,7 @@
 
 {% block content %}
 <section class="plant-form-section">
+    {% if user.is_authenticated %}
     <div class="plants-form-container">
         <h2 class="form-title">افزودن گیاه جدید به مجموعه</h2>
         <form class="plant-form" action="{%url 'main:add' %}" method="POST" enctype="multipart/form-data">
@@ -134,6 +135,9 @@
             <button type="submit" class='submit-btn'>ذخیره گیاه</button>
         </form>
     </div>
+    {%else%}
+    <h1>برای دسترسی ثبت نام کنید یا وارد شوید<h1>
+    {% endif %}
 </section>
 
 {% endblock%}

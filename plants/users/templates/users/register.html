@@ -1,17 +1,67 @@
 {% extends "layout.html" %}
 
 {% block title %}
-register
-{% endblock%}
+Register
+{% endblock %}
 
 {% block content %}
-<section class="reg-div">
-    <div class="reg-form">
-    <form action="{%url 'users:reg' %}" method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button>register</button>
-    </form>
+<section class="auth-section">
+    <div class="auth-container">
+        <h2 class="form-title">Join Our Community</h2>
+        <form class="auth-form" method="POST" action="{% url 'users:reg' %}">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+            <div class="auth-errors">
+                <p>Please correct the errors below:</p>
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <label for="id_username">Username</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                <div class="field-errors">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <label for="id_email">Email</label>
+                <input type="email" 
+                       name="email" 
+                       id="id_email" 
+                       class="form-control"
+                       required
+                       {% if form.email.value %}value="{{ form.email.value }}"{% endif %}>
+                {% if form.email.errors %}
+                <div class="field-errors">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password1">Password</label>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                <div class="field-errors">{{ form.password1.errors }}</div>
+                {% endif %}
+                <div class="form-hint">At least 8 characters with numbers and letters</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password2">Confirm Password</label>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                <div class="field-errors">{{ form.password2.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="submit-btn">Create Account</button>
+            
+            <div class="form-footer">
+                <p>Already have an account? <a href="{% url 'users:login' %}">Sign in here</a></p>
+            </div>
+        </form>
     </div>
 </section>
-{% endblock%}
+{% endblock %}

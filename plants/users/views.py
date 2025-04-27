@@ -15,6 +15,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'users/register.html', {'form':form})
 
+
 def loginview(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -25,6 +26,7 @@ def loginview(request):
         form = AuthenticationForm()
     return render(request, 'users/login.html', {'form':form})
         
+
 def logoutview(request):
     if request.method == 'POST':
         logout(request)
