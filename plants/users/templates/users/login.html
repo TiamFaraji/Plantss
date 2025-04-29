@@ -1,39 +1,36 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Login
+ورود
 {% endblock %}
 
 {% block content %}
 <section class="auth-section">
     <div class="auth-container">
-        <h2 class="form-title">Welcome Back</h2>
+        <h2 class="form-title">خوش آمدید</h2>
         <form class="auth-form" method="POST" action="{% url 'users:login' %}">
             {% csrf_token %}
             
             {% if form.errors %}
             <div class="auth-errors">
-                <p>Your username and password didn't match. Please try again.</p>
+                <p>نام کاربری یا رمز عبور صحیح نیست.</p>
             </div>
             {% endif %}
             
             <div class="form-group">
-                <label for="id_username">Username</label>
+                <label for="id_username">نام کاربری</label>
                 {{ form.username }}
             </div>
             
             <div class="form-group">
-                <label for="id_password">Password</label>
+                <label for="id_password">رمز عبور</label>
                 {{ form.password }}
-                {% comment %} <div class="forgot-password">
-                    <a href="{% url 'password_reset' %}">Forgot password?</a>
-                </div> {% endcomment %}
             </div>
             
-            <button type="submit" class="submit-btn">Login</button>
+            <button type="submit" class="submit-btn">ورود</button>
             
             <div class="form-footer">
-                <p>Don't have an account? <a href="{% url 'users:reg' %}">Register here</a></p>
+                <p>حساب کاربری ندارید؟ <a href="{% url 'users:reg' %}">ثبت نام</a></p>
             </div>
         </form>
     </div>

@@ -5,7 +5,6 @@
 
 {% block content %}
 <section class="pl">
-    {% comment %} {% if user.is_authenticated %} {% endcomment %}
     {% for plants in new %}
     <article class="plants">
         <a href="{%url 'api:edit' plants.id %}">
@@ -31,6 +30,5 @@
         </a>
     </article>
     {% endfor %}
-    {% comment %} {% endif %} {% endcomment %}
 </section>
 {% endblock %}

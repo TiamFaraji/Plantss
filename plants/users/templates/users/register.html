@@ -1,25 +1,25 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Register
+ثبت نام
 {% endblock %}
 
 {% block content %}
 <section class="auth-section">
     <div class="auth-container">
-        <h2 class="form-title">Join Our Community</h2>
+        <h2 class="form-title">ساخت حساب</h2>
         <form class="auth-form" method="POST" action="{% url 'users:reg' %}">
             {% csrf_token %}
             
             {% if form.errors %}
             <div class="auth-errors">
-                <p>Please correct the errors below:</p>
+                <p></p>
                 {{ form.non_field_errors }}
             </div>
             {% endif %}
             
             <div class="form-group">
-                <label for="id_username">Username</label>
+                <label for="id_username">نام کاربری</label>
                 {{ form.username }}
                 {% if form.username.errors %}
                 <div class="field-errors">{{ form.username.errors }}</div>
@@ -27,7 +27,7 @@ Register
             </div>
             
             <div class="form-group">
-                <label for="id_email">Email</label>
+                <label for="id_email">ایمیل</label>
                 <input type="email" 
                        name="email" 
                        id="id_email" 
@@ -40,16 +40,16 @@ Register
             </div>
             
             <div class="form-group">
-                <label for="id_password1">Password</label>
+                <label for="id_password1">رمز عبور</label>
                 {{ form.password1 }}
                 {% if form.password1.errors %}
                 <div class="field-errors">{{ form.password1.errors }}</div>
                 {% endif %}
-                <div class="form-hint">At least 8 characters with numbers and letters</div>
+                <div class="form-hint">رمز عبور باید حداقل حاوی 8 رقم باشد.</div>
             </div>
             
             <div class="form-group">
-                <label for="id_password2">Confirm Password</label>
+                <label for="id_password2">تایید رمز عبور</label>
                 {{ form.password2 }}
                 {% if form.password2.errors %}
                 <div class="field-errors">{{ form.password2.errors }}</div>
@@ -59,7 +59,7 @@ Register
             <button type="submit" class="submit-btn">Create Account</button>
             
             <div class="form-footer">
-                <p>Already have an account? <a href="{% url 'users:login' %}">Sign in here</a></p>
+                <p>حساب کابری دارید؟ <a href="{% url 'users:login' %}">ورود</a></p>
             </div>
         </form>
     </div>
