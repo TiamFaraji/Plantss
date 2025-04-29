@@ -4,37 +4,6 @@ from rest_framework import mixins, generics
 from rest_framework.request import Request
 from rest_framework.permissions import IsAuthenticated
 
-# region comment
-# from django.shortcuts import get_object_or_404
-# from rest_framework.response import Response 
-# from rest_framework.decorators import api_view
-# from rest_framework import status
-
-# @api_view(['GET'])
-# def plants_list(request):
-# #     pl = Addfield.objects.all()
-# #     serializer = dataserializer(pl, many=True)
-# #     return Response(serializer.data, status.HTTP_200_OK)
-
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def plant(request, plants_id):
-#     pl = get_object_or_404(Addfield, id=plants_id, author=request.user)
-#     if request.method == 'GET':
-#         serializer = dataserializer(pl)
-#         return Response(serializer.data)
-#     elif request.method == 'PUT':
-#         serializer = dataserializer(pl, data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save(user=request.user)
-#         return Response(serializer.data, status.HTTP_200_OK)
-#     elif request.method == 'DELETE':
-#         pl.delete()
-#         response ={
-#             'detail' : 'plant has been deleted'
-#         }
-#         return Response(response, status.HTTP_204_NO_CONTENT)
-    
-#endregion
 
 # region mixins
 class plants_listt(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):

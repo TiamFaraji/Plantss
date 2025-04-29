@@ -207,7 +207,7 @@
     }
   }
 
-/* Authentication Pages Shared Styles */
+
 .auth-section {
   display: flex;
   justify-content: center;
@@ -260,7 +260,7 @@
   text-decoration: underline;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .auth-container {
       padding: 1.5rem;
@@ -277,7 +277,7 @@
   }
 }
 
-/* Registration Page Specific Styles */
+
 .auth-section {
   background-image: 
       radial-gradient(circle at 90% 10%, rgba(200, 230, 201, 0.4) 0%, transparent 25%),
@@ -392,7 +392,7 @@
   text-decoration: underline;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .auth-container {
       padding: 1.5rem;
